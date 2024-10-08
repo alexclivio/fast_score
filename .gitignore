@@ -35,3 +35,5 @@ fast_score-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore dev secrets
+config/dev_secrets.exs
