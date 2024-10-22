@@ -11,7 +11,7 @@ defmodule FastScore.Api do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         body
         |> Poison.decode!()
-        |> filter_competition_data()
+        |> filter_competitions_data()
 
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         IO.puts("404 Not Found")
@@ -21,9 +21,11 @@ defmodule FastScore.Api do
     end
   end
 
-  def filter_competition_data(data) do
-    data["competitions"]
-    |> List.first()
-    |> dbg()
+  def filter_competitions_data(data) do
+    top_five_leagues = ["PL", "BL1", "SA", "PD", "FL1"]
+
+    Enum.filter(data["competitions"], fn competition ->
+      competition["code"] in top_five_leagues
+    end)
   end
 end

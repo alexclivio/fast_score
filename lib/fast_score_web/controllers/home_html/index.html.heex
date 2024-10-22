@@ -1,8 +1,8 @@
 <section class="home-page-wrapper">
   <h2>Here we go.</h2>
 
-  <%= if @data["competitions"] do %>
-    <%= for competition <- @data["competitions"] do %>
+  <%= if @data do %>
+    <%= for competition <- @data do %>
       <p><%= competition["code"] %></p>
     <% end %>
   <% end %>
