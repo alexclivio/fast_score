@@ -7,7 +7,7 @@ defmodule FastScore.Api do
 
     # Fetch the API key from the configuration
     case Application.fetch_env!(:fast_score, :api_key) do
-      {:ok, api_key} ->
+      api_key when is_binary(api_key) ->
         # Make the GET request to the API
         case HTTPoison.get(api_url, [{"X-Auth-Token", api_key}]) do
           {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->

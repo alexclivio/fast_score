@@ -3,7 +3,7 @@
 
   <%= if @data do %>
     <%= for competition <- @data do %>
-      <p><%= competition["code"] %></p>
+      <a href={"/competition/#{competition["code"]}"}><%= competition["code"] %></a>
     <% end %>
   <% end %>
 </section>

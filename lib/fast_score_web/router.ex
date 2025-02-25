@@ -18,6 +18,8 @@ defmodule FastScoreWeb.Router do
     pipe_through :browser
 
     get "/", FastScoreController, :index
+
+    get "/competition/:competition_code", FastScoreController, :render_competition_matchday
   end
 
   # Other scopes may use custom stacks.

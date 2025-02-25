@@ -10,4 +10,8 @@ defmodule FastScoreWeb.FastScoreController do
 
     render(conn, :index, data: data)
   end
+
+  def render_competition_matchday(conn, _params) do
+    render(conn, :match_day)
+  end
 end
